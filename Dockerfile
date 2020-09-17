@@ -3,5 +3,5 @@ COPY . /var/www
 WORKDIR /var/www
 RUN pip install rasa==1.10.2
 RUN rasa train
-CMD ["rasa", "run", "actions", "&"]
-ENTRYPOINT [ "rasa", "run", "-p", "8080"]
+RUN ["chmod", "+x", "run.sh"]
+ENTRYPOINT ["bash", "run.sh"]
