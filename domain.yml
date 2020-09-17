@@ -1,0 +1,46 @@
+intents:
+  - start
+  - user_in
+  - checkmail
+
+entities:
+  - login
+  - domain
+  - email
+  - mailid
+
+slots:
+  login:
+    type: unfeaturized
+    auto_fill: false
+  domain:
+    type: unfeaturized
+    auto_fill: false
+  mail:
+    type: unfeaturized
+    auto_fill: false
+
+responses:
+  utter_mail:
+    - text: "please use the email id: {login}@1secmail.com"
+  utter_ask_login:
+    - text: "please enter a login id which will be used for creating email id"
+  utter_wrong_login:
+    - text: "logins admin, abuse, webmaster, contact, postmaster, hostmaster not allowed due to security issues"
+  utter_ask_domain:
+    - text: "please choose from the below domains available"
+      buttons:
+      - title: "1secmail.com"
+        payload: "1secmail.com"
+
+forms: 
+  - createmail_form
+
+actions:
+  - readmail_action
+  - readsinglemail_action
+        
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
